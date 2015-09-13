@@ -38,7 +38,7 @@ public class MainDruidDemo {
     }
     private static void checkResults(Connection connection) throws Exception{
         ResultSet resultSet=null;
-        PreparedStatement preparedStatement=connection.prepareStatement("select * from `user_info` order by id desc");
+        PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM address");
         try {
             resultSet=preparedStatement.executeQuery();
         } catch (Exception e){
@@ -58,9 +58,9 @@ public class MainDruidDemo {
     }
 
     public static void main(String[] args){
-        String url="jdbc:mysql://localhost/adbcjtck";
-        String user="adbcjtck";
-        String password="adbcjtck";
+        String url="jdbc:mysql://115.29.160.84:3306/sakila";
+        String user="root";
+        String password="Ada123456";
         DruidDataSource druidDataSource=new DruidDataSource();
         //String driver="com.mysql.jdbc.Driver";
         String driver="org.adbcj.dbcj.Driver";
@@ -86,10 +86,10 @@ public class MainDruidDemo {
         try{
             conn= druidDataSource.getConnection();
 
-            initTable(conn);
-            insertValues(conn);
+            /*initTable(conn);
+            insertValues(conn);*/
             checkResults(conn);
-            clearTable(conn);
+           // clearTable(conn);
             conn.close();
 
         } catch (Exception e){

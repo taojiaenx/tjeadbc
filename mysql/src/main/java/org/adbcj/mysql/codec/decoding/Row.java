@@ -78,6 +78,9 @@ public class Row<T> extends DecoderState {
                             case LONG:
                                 value = IoUtils.readInt(in);
                                 break;
+                            case SHORT:
+                            	value = IoUtils.readShort(in);
+                            	break;
                             case LONGLONG:
                                 value = IoUtils.readLong(in);
                                 break;
