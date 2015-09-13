@@ -19,9 +19,9 @@ public class MainDemo {
         // Usually you have one instance in your system.
         // when you close the connection-manager, all associated connections are closed to.
         final ConnectionManager connectionManager = ConnectionManagerProvider.createConnectionManager(
-                "adbcj:pooled:mysql://localhost/adbcjtck",
-                "adbcjtck",
-                "adbcjtck"
+                "adbcj:pooled:mysql://115.29.160.84:3306/sakila",
+                "root",
+                "Ada123456"
         );
 
         // Connect to your database. It's asynchronous.
@@ -33,7 +33,7 @@ public class MainDemo {
                 switch (connectionDbFuture.getState()){
                     case SUCCESS:
                         final Connection connection = connectionDbFuture.getResult();
-                        continueAndCreateSchema(connection);
+                        continueWithSelect(connection);
                         break;
                     case FAILURE:
                         connectionDbFuture.getException().printStackTrace();
@@ -105,7 +105,7 @@ public class MainDemo {
     }
 
     private static void continueWithSelect(final Connection connection) {
-        connection.executeQuery("SELECT * FROM posts").addListener(new DbListener<ResultSet>() {
+        connection.executeQuery("SELECT * FROM address").addListener(new DbListener<ResultSet>() {
             @Override
             public void onCompletion(DbFuture<ResultSet> resultSetDbFuture) {
                 switch (resultSetDbFuture.getState()) {
@@ -128,7 +128,7 @@ public class MainDemo {
 
     private static void listResultSet(ResultSet result) {
         for (Row row : result) {
-            System.out.println("ID: "+row.get("ID").getLong()+" with title "+row.get("title").getString());
+            System.out.println("ID: "+row.get("address_id").getLong()+" with title "+row.get("address").getString());
         }
     }
 }

@@ -154,6 +154,9 @@ public class Row<T> extends DecoderState {
                             case TINYINT:
                                 value = Byte.valueOf(strVal);
                                 break;
+                            case SMALLINT:
+                            	value = Short.valueOf(strVal);
+                            	break;
                             case INTEGER:
                                 value = Integer.valueOf(strVal);
                                 break;
