@@ -11,6 +11,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.MessageToByteEncoder;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+
 import org.adbcj.*;
 import org.adbcj.mysql.codec.ClientRequest;
 import org.adbcj.mysql.codec.MySqlClientDecoder;

@@ -37,8 +37,9 @@ public class MainDruidDemo {
         preparedStatement.executeUpdate();
     }
     private static void checkResults(Connection connection) throws Exception{
+    	System.out.println(connection.getClass().getName());
         ResultSet resultSet=null;
-        PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM address");
+        PreparedStatement preparedStatement=connection.prepareStatement("SELECT * FROM address limit 1");
         try {
             resultSet=preparedStatement.executeQuery();
         } catch (Exception e){

@@ -22,7 +22,9 @@ import org.adbcj.mysql.codec.decoding.DecoderState;
 import org.adbcj.mysql.codec.decoding.ResultAndState;
 import org.adbcj.mysql.codec.packets.FailedToParseInput;
 import org.adbcj.mysql.codec.packets.ServerPacket;
+
 import io.netty.channel.Channel;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

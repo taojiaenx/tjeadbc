@@ -45,6 +45,7 @@ public class Row<T> extends DecoderState {
     @Override
     public ResultAndState parse(int length, int packetNumber,
                                 BoundedInputStream in, Channel channel) throws IOException {
+
         int fieldCount = in.read(); // This is only for checking for EOF
         if (fieldCount == RESPONSE_EOF) {
             eventHandler.endResults(accumulator);

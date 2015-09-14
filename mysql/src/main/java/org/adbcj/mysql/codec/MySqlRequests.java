@@ -24,6 +24,7 @@ public final class MySqlRequests {
         return new MySqlRequest("Close",future, new ExpectOK<Void>(future, connection),new CommandRequest(Command.QUIT));
     }
     public static <T> MySqlRequest executeQuery(String query, ResultHandler<T> eventHandler, T accumulator, MySqlConnection connection) {
+
         CancellationToken cancelSupport = new CancellationToken();
         DefaultDbFuture<T> future = new DefaultDbFuture<T>(connection.stackTraceOptions(),cancelSupport);
         ResultHandler<T> handleFailures = SafeResultHandlerDecorator.wrap(eventHandler, future);
